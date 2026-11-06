@@ -1,58 +1,181 @@
-# ai-code-review-platform
+# AI Code Reviewer 🚀
 
-An advanced, full-stack AI-powered code review application that analyzes code snippets to identify bugs, highlight security vulnerabilities, and suggest architectural improvements using the Google Gemini AI.
+An AI-powered code review platform that helps developers identify bugs, detect security vulnerabilities, understand code complexity, and improve code quality through intelligent analysis.
 
-## 🚀 Key Features
+<p align="center">
+  **Built with React, Spring Boot, Java, and Groq AI**
+</p>
 
-*   **Intelligent Code Analysis**: Uses Google's Gemini 2.5 Flash model for deep code inspection.
-*   **Premium User Interface**: A highly polished, modern, dark-mode glassmorphism UI with smooth micro-animations.
-*   **Secure Authentication**: Role-based access control with stateless JSON Web Tokens (JWT). Users can log in safely using either their username or email address.
-*   **Multi-Language Support**: Native editor support for analyzing Java, Python, JavaScript, TypeScript, C++, Go, Rust, Kotlin, and PHP.
-*   **Interactive Code Editor**: Integrated Monaco Editor (the engine behind VS Code) directly in the browser.
-*   **Review History Tracking**: Stores all past AI reviews in a PostgreSQL database for easy tracking over time.
+## ✨ Features
 
----
+- **AI-Powered Code Review:** Analyze code using Groq AI and receive structured feedback.
+- **Bug Detection:** Identify potential runtime errors, logical mistakes, and coding issues.
+- **Security Analysis:** Detect potential vulnerabilities, including SQL injection and insecure coding practices.
+- **Code Quality Scoring:** Get an overall score representing code quality.
+- **Time & Space Complexity:** Analyze current complexity and receive optimization suggestions.
+- **Optimization Recommendations:** Get actionable suggestions to improve code efficiency and readability.
+- **Multiple Language Support:** Review code across supported programming languages.
+- **Review History:** Access previously submitted code reviews.
+- **Structured Feedback:** View issues with severity, category, descriptions, and suggested fixes.
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
-**Frontend**
-*   **React 18** (via Vite)
-*   **Axios** (API & Interceptors)
-*   **React Router v6** (Protected Navigation Guards)
-*   **Monaco Editor** (Browser-based code editing)
-*   **Tailwind CSS / Vanilla CSS** (Custom Design System with CSS variables and Glassmorphism effects)
+| Component | Technology |
+|---|---|
+| Frontend | React.js, Vite |
+| Code Editor | Monaco Editor |
+| Backend | Java, Spring Boot |
+| Database | MySQL |
+| AI Integration | Groq API |
+| Authentication | Spring Security, JWT |
+| Build Tool | Maven |
+| API Communication | REST APIs |
 
-**Backend**
-*   **Java 17** & **Spring Boot 3.4.3**
-*   **Spring Security** & **JWT** (Authentication & Authorization)
-*   **Spring Data JPA** & **Hibernate** (ORM)
-*   **PostgreSQL** (Relational Database)
-*   **Maven** (Dependency Management)
+## 🏗️ Project Architecture
 
----
-
-## ⚙️ Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-*   [Java Development Kit (JDK) 17+](https://adoptium.net/) installed.
-*   [Node.js (LTS)](https://nodejs.org/en/) & npm installed.
-*   [PostgreSQL](https://www.postgresql.org/) database installed and running locally on port `5432`.
-*   A Google Gemini API Key.
-
----
-
-## 🚦 Getting Started
-
-### 1. Database Setup
-Create a local PostgreSQL database named `aicodereviewer`:
-```sql
-CREATE DATABASE aicodereviewer;
+```text
+AI-Code-Reviewer/
+│
+├── backend/
+│   ├── src/
+│   │   └── main/
+│   │       ├── java/
+│   │       └── resources/
+│   └── pom.xml
+│
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── App.css
+│   │   └── main.jsx
+│   └── package.json
+│
+├── .gitignore
+├── package-lock.json
+└── README.md
 ```
-Ensure your local Postgres instance has a user `postgres` with the password `root`. If your setup differs, update the `application.properties` file in the backend.
 
-### 2. Backend Setup
-1. Navigate to the backend directory:
-   ```bash
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Java JDK 24
+- Maven (or use the included Maven Wrapper)
+- Node.js and npm
+- MySQL 8+
+- A Groq API key
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Raj-Panwar/AICODE-REVIEW.git
+cd AICODE-REVIEW
+```
+
+### 2. Configure the Backend
+
+Navigate to the backend:
+
+```bash
+cd backend
+```
+
+Configure the following environment variables:
+
+| Variable | Description |
+|---|---|
+| `DB_PASSWORD` | MySQL database password |
+| `JWT_SECRET` | JWT signing secret |
+| `GROQ_API_KEY` | Groq API key |
+
+Also configure your database URL and username in `application.properties`.
+
+### 3. Start the Backend
+
+From the `backend` directory:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+The backend runs on:
+
+```text
+http://localhost:8080
+```
+
+### 4. Start the Frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open the frontend at:
+
+```text
+http://localhost:5173
+```
+
+## 🔍 How It Works
+
+1. Write or paste code into the integrated code editor.
+2. Select the programming language.
+3. Submit the code for analysis.
+4. The backend processes the request and communicates with Groq AI.
+5. The AI generates structured review results.
+6. Explore the code quality score, detected issues, security concerns, complexity analysis, and optimization recommendations.
+7. Access previous reviews through review history.
+
+## 📊 AI Review Capabilities
+
+| Analysis | Output |
+|---|---|
+| Code Quality | Overall score and rating |
+| Bug Detection | Issue descriptions and severity |
+| Security | Potential vulnerability identification |
+| Time Complexity | Current and suggested complexity |
+| Space Complexity | Current and suggested complexity |
+| Optimization | Actionable improvement suggestions |
+
+*AI-generated findings are recommendations and should be validated by developers before applying them.*
+
+## 🔐 Security
+
+- API keys and sensitive credentials should be supplied through environment variables.
+- JWT-based authentication protects authenticated endpoints.
+- Database credentials should never be committed to version control.
+
+## 🚀 Future Improvements
+
+- More accurate static and dynamic code analysis.
+- Support for additional programming languages.
+- Improved code optimization recommendations.
+- Automated test-case generation.
+- More detailed review reports and analytics.
+
+## 👨‍💻 Author
+
+**Raj Panwar**
+
+- GitHub: [@Raj-Panwar](https://github.com/Raj-Panwar)
+- Project: [AI Code Reviewer](https://github.com/Raj-Panwar/AICODE-REVIEW)
+
+## 🙏 Acknowledgements
+
+This project builds upon an existing AI Code Review Platform. The current version includes modifications and additional functionality, including Groq integration, structured AI reviews, and complexity analysis.
+
+Original project: [ai-code-review-platform](https://github.com/storm309/ai-code-review-platform)
+
+---
+
+⭐ If you find this project useful, consider giving it a star!
+
    cd backend
    ```
 2. Update the `application.properties` file (`src/main/resources/application.properties`) with your API Key:
